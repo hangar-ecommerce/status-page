@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hangar status</title>
+    <meta
+      name="description"
+      content="Live status of the Hangar e-commerce platform (API, storefront, backoffice) per environment."
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <h1>Hangar status</h1>
+      <p class="tagline">
+        Public, externally-hosted status page. Probed every 5 minutes by GitHub
+        Actions. Auto-refreshes in your browser every 30 seconds.
+      </p>
+    </header>
+
+    <main id="main">
+      <section aria-labelledby="overview-heading" class="overview">
+        <h2 id="overview-heading">Overall status</h2>
+        <p id="overall-status" class="overall" data-status="unknown">
+          <span class="status-icon" aria-hidden="true">?</span>
+          <span class="status-label">Loading&hellip;</span>
+        </p>
+        <p class="meta">
+          Last update:
+          <time id="updated-at" datetime="">never</time>
+        </p>
+      </section>
+
+      <section aria-labelledby="components-heading">
+        <h2 id="components-heading">Components</h2>
+        <div
+          id="live-region"
+          class="visually-hidden"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+        <table class="components" id="components-table">
+          <caption class="visually-hidden">
+            Status of every Hangar component per environment.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Component</th>
+              <th scope="col">Environment</th>
+              <th scope="col">Status</th>
+              <th scope="col">Response</th>
+              <th scope="col">Last checked</th>
+            </tr>
+          </thead>
+          <tbody id="components-body">
+            <tr>
+              <td colspan="5">Loading components&hellip;</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="history-heading">
+        <h2 id="history-heading">30-day uptime</h2>
+        <p class="muted">
+          Each bar is one probe (5-min interval). Green = operational, yellow =
+          degraded, red = down. Hover or focus a bar for the exact timestamp.
+        </p>
+        <div id="history" class="history"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Source:
+        <a href="https://github.com/hangar-ecommerce/status-page"
+          >github.com/hangar-ecommerce/status-page</a
+        >. Probes run from GitHub Actions on a 5-minute cron. This page is
+        static and served from GitHub Pages.
+      </p>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

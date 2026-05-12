@@ -1,0 +1,46 @@
+name: probe
+
+on:
+  schedule:
+    # Every 5 minutes. Public repos get unlimited free Actions minutes.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Probe components
+        id: probe
+        env:
+          STAGING_API_URL: ${{ secrets.STAGING_API_URL }}
+          PROD_API_URL: ${{ secrets.PROD_API_URL }}
+          STAGING_STOREFRONT_URL: ${{ secrets.STAGING_STOREFRONT_URL }}
+          PROD_STOREFRONT_URL: ${{ secrets.PROD_STOREFRONT_URL }}
+          STAGING_BACKOFFICE_URL: ${{ secrets.STAGING_BACKOFFICE_URL }}
+          PROD_BACKOFFICE_URL: ${{ secrets.PROD_BACKOFFICE_URL }}
+        run: node scripts/probe.mjs
+
+      - name: Commit status changes
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain status.json history.jsonl)" ]]; then
+            echo "No status changes."
+            exit 0
+          fi
+          git config user.name "hangar-status-bot"
+          git config user.email "noreply@github.com"
+          git add status.json history.jsonl
+          git commit -m "chore(probe): update status [skip ci]"
+          git push
