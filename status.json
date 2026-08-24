@@ -1,53 +1,53 @@
 {
-  "updated_at": "2026-08-24T08:06:32.731Z",
+  "updated_at": "2026-08-24T08:27:17.844Z",
   "components": [
     {
       "id": "api-staging",
       "name": "API",
       "environment": "staging",
       "status": "down",
-      "response_ms": 323,
-      "last_checked": "2026-08-24T08:06:31.779Z"
+      "response_ms": 339,
+      "last_checked": "2026-08-24T08:27:16.817Z"
     },
     {
       "id": "api-prod",
       "name": "API",
       "environment": "prod",
       "status": "down",
-      "response_ms": 70,
-      "last_checked": "2026-08-24T08:06:32.007Z"
+      "response_ms": 114,
+      "last_checked": "2026-08-24T08:27:17.092Z"
     },
     {
       "id": "storefront-staging",
       "name": "Storefront",
       "environment": "staging",
       "status": "down",
-      "response_ms": 62,
-      "last_checked": "2026-08-24T08:06:32.169Z"
+      "response_ms": 51,
+      "last_checked": "2026-08-24T08:27:17.243Z"
     },
     {
       "id": "storefront-prod",
       "name": "Storefront",
       "environment": "prod",
       "status": "down",
-      "response_ms": 53,
-      "last_checked": "2026-08-24T08:06:32.322Z"
+      "response_ms": 74,
+      "last_checked": "2026-08-24T08:27:17.418Z"
     },
     {
       "id": "backoffice-staging",
       "name": "Backoffice",
       "environment": "staging",
       "status": "down",
-      "response_ms": 78,
-      "last_checked": "2026-08-24T08:06:32.500Z"
+      "response_ms": 68,
+      "last_checked": "2026-08-24T08:27:17.586Z"
     },
     {
       "id": "backoffice-prod",
       "name": "Backoffice",
       "environment": "prod",
       "status": "down",
-      "response_ms": 29,
-      "last_checked": "2026-08-24T08:06:32.629Z"
+      "response_ms": 55,
+      "last_checked": "2026-08-24T08:27:17.742Z"
     },
     {
       "id": "suppliers",
